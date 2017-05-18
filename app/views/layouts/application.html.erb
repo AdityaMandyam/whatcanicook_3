@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Whatcanicook</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<div>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+</div>
+<body>
+<header class="nav navbar-fixed-top navbar-inverse navbar-tabs">
+  <div class="container">
+    <nav>
+      <%= image_tag("/assets/whatcanicook_logo.png") %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   '/' %></li>
+        <li><%= link_to "Help",   '/help' %></li>
+        <% if user_signed_in? %>
+            <li><%= link_to "Add Recipe", '/new' %></li>
+            <li><%= link_to current_user.email, '/administration' %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, :method => :delete  %></li>
+        <%else%>
+            <li><%= link_to "Log in", '/log_in' %></li>
+            <li><%= link_to "Sign up", '/sign_up' %></li>
+      <%end%>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="container">
+  <%= yield %>
+</div>
+<div class="push"></div>
+</div>
+<footer class="footer">
+</footer>
+</body>
+</html>
+

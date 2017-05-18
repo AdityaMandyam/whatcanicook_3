@@ -1,0 +1,15 @@
+<%= form_for(comment) do |f| %>
+<table>
+  <tr>
+    <td>
+      <%= f.label :description %>
+    </td>
+    <td>
+      <%= f.text_area :description %>
+    </td>
+  </tr>
+</table>
+<%end%>
+<div class="actions">
+  <%= f.submit %>
+</div>

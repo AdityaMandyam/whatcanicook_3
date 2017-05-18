@@ -1,0 +1,33 @@
+<p>
+  <strong>Title:</strong>
+  <%= @recipe.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
+
+<p>
+  <% if @recipe.avatar.exists? %>
+      <%= image_tag @recipe.avatar.url %>
+  <% end %>
+</p>
+
+<% unless Comment.find_by_recipe_id(@recipe.id).nil? %>
+  <table>
+    <caption>Comments</caption>
+    <% Comment.find_by_recipe_id(params[:id]) do |comment| %>
+    <tr>
+      <td><%= comment.description %></td>
+    </tr>
+    <%end%>
+  </table>
+<% end %>
+
+<% if user_signed_in? %>
+    <%= link_to 'Edit', edit_recipe_path(@recipe) %>
+    <%= link_to 'Add Comment', comments_create_path %>
+<%end%>
+
+

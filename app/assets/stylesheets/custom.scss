@@ -1,0 +1,49 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+body {
+  padding-top: 60px;
+  height: 100%;
+  border-left-color:#F5A9A9;
+  border-left-width:100px;
+  border-left-style:ridge;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+table, th, td {
+  border: 3px solid black;
+  padding: 10px;
+}
+
+caption {
+  font-weight: bold;
+  text-align: left;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #666666;
+}
+
+div {
+  padding-top: 15px;
+}
+
+
+
+
